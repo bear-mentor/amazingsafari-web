@@ -1,7 +1,7 @@
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/products";
 
 export function meta({}: Route.MetaArgs) {
-  return [{ title: "Amazing Safari" }, { name: "description", content: "Zoo merchandise." }];
+  return [{ title: "Products of Amazing Safari" }];
 }
 
 export async function clientLoader() {
@@ -10,15 +10,11 @@ export async function clientLoader() {
   return products;
 }
 
-export default function HomeRoute({ loaderData }: Route.ComponentProps) {
+export default function ProductsRoute({ loaderData }: Route.ComponentProps) {
   const products = loaderData;
 
   return (
     <div>
-      <section>
-        <h1>Zoo Merchandise for Everyone</h1>
-      </section>
-
       <ul>
         {products.map((product: any) => {
           return <li key={product.id}>{product.name}</li>;

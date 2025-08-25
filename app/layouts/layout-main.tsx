@@ -10,7 +10,7 @@ const navigationLinks = [
 
 export default function LayoutMain() {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <nav className="flex items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-4">
           <img src="/logo.svg" alt="Amazing Safari Logo" className="size-20" />
@@ -30,9 +30,11 @@ export default function LayoutMain() {
         </ul>
       </nav>
 
-      <Outlet />
+      <main className="flex-[1]">
+        <Outlet />
+      </main>
 
-      <footer>
+      <footer className="p-2 bg-green-100">
         <p>&copy; {new Date().getFullYear()} Amazing Safari</p>
       </footer>
     </div>

@@ -12,10 +12,10 @@ export default function LayoutMain() {
   return (
     <div>
       <nav className="flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-4">
+        <Link to="/" className="flex items-center gap-4">
           <img src="/logo.svg" alt="Amazing Safari Logo" className="size-20" />
           <h1 className="hidden">Amazing Safari</h1>
-        </div>
+        </Link>
         <ul className="flex gap-6">
           {navigationLinks.map((navigationLink) => (
             <li key={navigationLink.to}>

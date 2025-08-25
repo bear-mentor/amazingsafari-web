@@ -11,14 +11,10 @@ const navigationLinks = [
 export default function LayoutMain() {
   return (
     <div>
-      <nav className="flex items-center justify-between px-6 py-4 bg-gray-100 border-b border-gray-300">
+      <nav className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-4">
-          <img
-            src="/logo.svg"
-            alt="Amazing Safari Logo"
-            className="h-10 w-10"
-          />
-          <h1 className="text-2xl font-bold text-gray-800">Amazing Safari</h1>
+          <img src="/logo.svg" alt="Amazing Safari Logo" className="size-20" />
+          <h1 className="hidden">Amazing Safari</h1>
         </div>
         <ul className="flex gap-6">
           {navigationLinks.map((navigationLink) => (

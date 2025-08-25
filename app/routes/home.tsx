@@ -3,11 +3,16 @@ import type { Route } from "./+types/home";
 import type { Product } from "~/modules/product/type";
 
 export function meta({}: Route.MetaArgs) {
-  return [{ title: "Amazing Safari" }, { name: "description", content: "Zoo merchandise." }];
+  return [
+    { title: "Amazing Safari" },
+    { name: "description", content: "Zoo merchandise." },
+  ];
 }
 
 export async function clientLoader() {
-  const response = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/products`);
+  const response = await fetch(
+    `${import.meta.env.VITE_BACKEND_API_URL}/products`
+  );
   const products: Product[] = await response.json();
   return { products };
 }
@@ -17,8 +22,10 @@ export default function HomeRoute({ loaderData }: Route.ComponentProps) {
 
   return (
     <div>
-      <section>
-        <h1>Zoo Merchandise for Everyone</h1>
+      <section className="m-20">
+        <p className="font-bold text-3xl text-center">
+          Zoo Merchandise for Everyone
+        </p>
       </section>
 
       <ProductsGrid products={products} />

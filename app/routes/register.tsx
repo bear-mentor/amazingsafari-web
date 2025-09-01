@@ -8,6 +8,22 @@ export function meta({}: Route.MetaArgs) {
   return [{ title: "Register" }];
 }
 
+export async function clientAction({ request }: Route.ClientActionArgs) {
+  const formData = await request.formData();
+
+  const fullName = formData.get("fullName");
+  const email = formData.get("email");
+  const password = formData.get("password");
+
+  console.log({
+    fullName,
+    email,
+    password,
+  });
+
+  return null;
+}
+
 export default function RegisterRoute({}: Route.ComponentProps) {
   return (
     <div className="mx-auto w-full max-w-md space-y-6">
@@ -16,7 +32,7 @@ export default function RegisterRoute({}: Route.ComponentProps) {
         <p className="text-sm text-muted-foreground">Create your account</p>
       </header>
 
-      <Form method="post" className="space-y-4">
+      <Form method="POST" className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="fullName">Full name</Label>
           <Input
